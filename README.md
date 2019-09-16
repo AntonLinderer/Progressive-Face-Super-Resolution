@@ -7,7 +7,7 @@ Deokyun Kim, Minseon Kim, Gihyun Kwon, and Dae-shik Kim, [Progressive Face Super
 * Pytorch 1.0.0
 * CUDA 9.0 or higher
 
-This code support (NVIDIA apex-Distribute Training in Pytorch)[https://github.com/NVIDIA/apex], please follow description. 
+This code support [NVIDIA apex-Distribute Training in Pytorch](https://github.com/NVIDIA/apex), please follow description. 
 
 ### Data Preparation
 
