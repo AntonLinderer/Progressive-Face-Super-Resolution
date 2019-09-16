@@ -1,4 +1,4 @@
-# Progressive Face Super Resolution
+# Progressive Face Super-Resolution
 Deokyun Kim, Minseon Kim, Gihyun Kwon, and Dae-shik Kim, [Progressive Face Super-Resolution via Attention to Facial Landmark](https://arxiv.org/abs/1908.08239), The British Machine Vision Conference 2019 (BMVC 2019)
 
 
@@ -47,6 +47,6 @@ $ python -m torch.distributed.launch --master_port=$RANDOM --nproc_per_node=4 tr
 $ python eval.py --data-path './dataset' --checkpoint-path 'CHECKPOINT_PATH/****.ckpt'
 ```
 
-# Acknowledgement
+## Acknowledgement
 
 This work was supported by Engineering Research Center of Excellence (ERC) Program supported by National Research Foundation (NRF), Korean Ministry of Science & ICT (MSIT) (Grant No. NRF-2017R1A5A1014708), Institute for Information & communications Technology Promotion(IITP) grant funded by the Korea government(MSIT) (No.2016- 0-00563, Research on Adaptive Machine Learning Technology Development for Intelligent Autonomous Digital Companion) and Hyundai Motor Company through HYUNDAITECHNION-KAIST Consortium.
