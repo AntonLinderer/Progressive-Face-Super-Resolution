@@ -8,7 +8,7 @@ Deokyun Kim, Minseon Kim, Gihyun Kwon, and Dae-shik Kim, [Progressive Face Super
 * CUDA 9.0 or higher
 
 This code support [NVIDIA apex-Distributed Training in Pytorch](https://github.com/NVIDIA/apex), please follow description. 
-Also, we refered state-of-the-art [Face Alignment Network](https://github.com/1adrianb/face-alignment) in order to face SR-oriented facial landmark heatmap.
+Also, we refered state-of-the-art [Face Alignment Network](https://github.com/1adrianb/face-alignment) in order to get face SR-oriented facial landmark heatmap.
 
 ### Data Preparation
 
