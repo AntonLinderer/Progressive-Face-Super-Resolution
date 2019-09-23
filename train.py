@@ -68,9 +68,9 @@ def train(generator, discriminator, face_align_net, g_optim, d_optim, input_imag
     hat_predict = discriminator(x_hat, step, alpha)
     grad_x_hat = grad(
         outputs=hat_predict.sum(), inputs=x_hat, create_graph=True)[0]
-    #grad_penalty = ((grad_x_hat.view(grad_x_hat.size(0), -1).norm(2, dim=1) -1)**2).mean()
-    grad_penalty = torch.max(torch.zeros(1).to(device)
-            , ((grad_x_hat.view(grad_x_hat.size(0), -1).norm(2, dim=1) -1)).mean())
+    grad_penalty = ((grad_x_hat.view(grad_x_hat.size(0), -1).norm(2, dim=1) -1)**2).mean()
+    #grad_penalty = torch.max(torch.zeros(1).to(device)
+    #        , ((grad_x_hat.view(grad_x_hat.size(0), -1).norm(2, dim=1) -1)).mean())
     grad_penalty = 10 * grad_penalty
     
     d_loss = predict_fake - predict_real + grad_penalty
