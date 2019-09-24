@@ -16,6 +16,7 @@ class CelebDataSet(Dataset):
     def __init__(self, data_path = './dataset/', state = 'train', data_augmentation=None):
         self.main_path = data_path
         self.state = state
+        self.data_augmentation = data_augmentation
 
         self.img_path = join(self.main_path, 'CelebA/Img/img_align_celeba')
         self.eval_partition_path = join(self.main_path, 'Anno/list_eval_partition.txt')
@@ -54,7 +55,7 @@ class CelebDataSet(Dataset):
         pre_process = [transforms.CenterCrop((178, 178)),
                        transforms.Resize((128, 128)),]
 
-        if state=='train' and data_augmentation:
+        if state=='train' and self.data_augmentation:
             pre_process.extend([transforms.RandomHorizontalFlip(),
                                 transforms.RandomRotation(20, resample=Image.BILINEAR),
                                 transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.4, hue=0.1)
