@@ -122,6 +122,7 @@ if __name__ == '__main__':
     parser.add_argument('--workers', default=4, type=int)
     parser.add_argument('--distributed', action='store_true')
     parser.add_argument('--local_rank', default=0, type=int, help='node rank for distributed training')
+    parser.add_argument('--data-augment', default=False, action='store_true')
     args = parser.parse_args()
 
     if args.local_rank==0:
@@ -139,7 +140,7 @@ if __name__ == '__main__':
     args.gpu = 0
     args.world_size = 1
 
-    dataset = CelebDataSet(data_path=args.data_path, state='train')
+    dataset = CelebDataSet(data_path=args.data_path, state='train', data_augmentation=args.data_augment)
 
     if args.distributed:
         args.gpu = args.local_rank

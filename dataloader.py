@@ -13,7 +13,7 @@ class CelebDataSet(Dataset):
     In addition, for progressive training, the target image for each step is resized to 32x32(Step1) and 64x64(Step2).
     """
 
-    def __init__(self, data_path = './dataset/', state = 'train'):
+    def __init__(self, data_path = './dataset/', state = 'train', data_augmentation=None):
         self.main_path = data_path
         self.state = state
 
@@ -51,10 +51,16 @@ class CelebDataSet(Dataset):
             self.image_list = test_img_list
 
         #image center cropping
-        self.pre_process = transforms.Compose([
-                                    transforms.CenterCrop((178, 178)),
-                                    transforms.Resize((128, 128)),
-                                    ])
+        pre_process = [transforms.CenterCrop((178, 178)),
+                       transforms.Resize((128, 128)),]
+
+        if state=='train' and data_augmentation:
+            pre_process.extend([transforms.RandomHorizontalFlip(),
+                                transforms.RandomRotation(20, resample=Image.BILINEAR),
+                                transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.4, hue=0.1)
+                               ])
+
+        self.pre_process = transforms.Compose(pre_process)
 
         self.totensor = transforms.Compose([
                                     transforms.ToTensor(),
